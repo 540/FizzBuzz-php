@@ -1,14 +1,14 @@
-# Introduction 
+# FizzBuzz
 
-### Problem Description:
+### Descripción del problema:
 
-Imagine the scene. You are eleven years old, and in the five minutes before the end of the lesson, your Maths teacher decides he should make his class more “fun” by introducing a “game”. He explains that he is going to point at each pupil in turn and ask them to say the next number in sequence, starting from one. The “fun” part is that if the number is divisible by three, you instead say “Fizz” and if it is divisible by five you say “Buzz”. So now your maths teacher is pointing at all of your classmates in turn, and they happily shout “one!”, “two!”, “Fizz!”, “four!”, “Buzz!”… until he very deliberately points at you, fixing you with a steely gaze… time stands still, your mouth dries up, your palms become sweatier and sweatier until you finally manage to croak “Fizz!”. Doom is avoided, and the pointing finger moves on.
+Imagina la escena. Tienes once años y, en los cinco minutos antes de que termine la clase, tu profesor de matemáticas decide hacer la clase más "divertida" con un "juego". Explica que va a señalar a cada alumno por turnos y les pedirá que digan el siguiente número de la secuencia, empezando desde el uno. La parte "divertida" es que si el número es divisible entre tres, en su lugar dices "Fizz", y si es divisible entre cinco dices "Buzz". Así que tu profesor va señalando a tus compañeros y ellos gritan alegremente "¡uno!", "¡dos!", "¡Fizz!", "¡cuatro!", "¡Buzz!"… hasta que muy deliberadamente te señala a ti, clavándote una mirada de acero… el tiempo se detiene, se te seca la boca, las palmas te sudan cada vez más hasta que finalmente consigues decir "¡Fizz!". Catástrofe evitada, y el dedo sigue adelante.
 
-So of course in order to avoid embarassment infront of your whole class, you have to get the full list printed out so you know what to say. Your class has about 33 pupils and he might go round three times before the bell rings for breaktime. Next maths lesson is on Thursday. Get coding!
+Así que, para evitar pasar vergüenza delante de toda la clase, necesitas tener la lista completa impresa para saber qué decir. Tu clase tiene unos 33 alumnos y el profesor podría dar tres rondas antes de que suene el timbre del recreo. La próxima clase de matemáticas es el jueves. ¡A programar!
 
-Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz “.
+Escribe un programa que imprima los números del 1 al 100. Para los múltiplos de tres imprime "Fizz" en lugar del número, y para los múltiplos de cinco imprime "Buzz". Para los números que son múltiplos de tres y de cinco a la vez, imprime "FizzBuzz".
 
-Sample output:
+Salida de ejemplo:
 
 1
 2
@@ -30,24 +30,38 @@ FizzBuzz
 Fizz
 19
 Buzz
-... until 100
+... hasta 100
 
-#### Stage 2 - New requirements:
+#### Fase 2 - Nuevos requisitos:
 
-A number is fizz if it is divisible by 3 or if it has a 3 in it
-A number is buzz if it is divisible by 5 or if it has a 5 in it
+Un número es fizz si es divisible entre 3 o si contiene un 3
+Un número es buzz si es divisible entre 5 o si contiene un 5
 
-Starting steps:
-- git clone https://github.com/540/FizzBuzz-php.git
-- cd FizzBuzz-php/
-- git checkout --track origin/initial_state 
-- composer install
-- Configure tests
-    - Edit configurations
-    - Add (+) PHP Unit
-    - Test Runner -> Defined in the configuration file
-    - use alternative configuration file
-    - phpunit library -> use composer autoloader -> path to script -> vendor/autoload
-    - Test Runner -> Default configuration file -> phpunit.xml
-- Test Run
+### Cómo empezar:
 
+```bash
+git clone https://github.com/540/FizzBuzz-php.git
+cd FizzBuzz-php/
+git checkout --track origin/initial_state
+```
+
+### Ejecución con Docker:
+
+```bash
+# Construir la imagen
+docker build -t fizzbuzz-php .
+
+# Entrar al contenedor
+# Al entrar, si no existe vendor/, se instala automáticamente
+docker run -it -v "$(pwd)":/app fizzbuzz-php bash
+
+# Ejecutar los tests dentro del contenedor
+vendor/bin/phpunit
+```
+
+### Ejecución local (requiere PHP 8.3+):
+
+```bash
+composer install
+vendor/bin/phpunit
+```
