@@ -48,6 +48,11 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function eliminarProductoLoBorraDeLaLista()
     {
+        $lista = new ListaDeLaCompra();
+        $lista->instruccion("añadir pan");
+        $res = instruccion("eliminar pan");
+
+        $this->assertEquals("", $res);
 
     }
 
