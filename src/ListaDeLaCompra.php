@@ -23,6 +23,10 @@ class ListaDeLaCompra
             unset($this->listaDeLaCompra[$nombre]);
         }
 
+        if($accion === "vaciar"){
+            $this->listaDeLaCompra = [];
+        }
+
 
         return implode(", ", array_map(
             fn($n, $c) => "$n x$c",
