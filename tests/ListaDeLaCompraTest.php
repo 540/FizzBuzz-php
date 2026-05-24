@@ -46,5 +46,14 @@ class ListaDeLaCompraTest extends TestCase
 
     }
 
+    /**
+     * @test
+     */
+    public function vaciarCarritoCuandoInstruccionEsEliminar()
+    {
+
+
+    }
+
 
 }
