@@ -10,6 +10,9 @@ class ListaDeLaCompra
         $partes = explode(" ", $instruccion);
         $nombre = strtolower($partes[1]);
         $cantidad = $partes[2];
+        if ($cantidad == null){
+            $cantidad = 1;
+        }
         return "$nombre x$cantidad";
     }
 }
