@@ -7,9 +7,44 @@ use PHPUnit\Framework\TestCase;
 
 class ListaDeLaCompraTest extends TestCase
 {
-
-    public function testCarrito()
+    /**
+     * @test
+     */
+    public function anadirProductoDevuelveUno()
     {
 
     }
+
+    /**
+     * @test
+     */
+    public function anadirProductoConCantidadDevuelveCantidad(){
+
+    }
+
+    /**
+     * @test
+     */
+    public function anadirConMayusculaNoInfluye()
+    {
+
+    }
+
+    /**
+     * @test
+     */
+    public function eliminarProductoLoBorraDeLaLista()
+    {
+
+    }
+
+    /**
+     * @test
+     */
+    public function eliminarProductoNoExistenteDevuelveAviso()
+    {
+
+    }
+
+
 }
