@@ -36,7 +36,11 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function anadirConMayusculaNoInfluye()
     {
+        $lista = new ListaDeLaCompra();
 
+        $res = $lista->instruccion("añadir Pan 3");
+
+        $this->assertEquals("pan x3", $res);
     }
 
     /**
