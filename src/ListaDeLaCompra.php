@@ -7,6 +7,9 @@ class ListaDeLaCompra
     private array $listaDeLaCompra = [];
 
     public function instruccion(string $instruccion): string{
-        return "pan x1";
+        $partes = explode(" ", $instruccion);
+        $nombre = $partes[1];
+        $cantidad = $partes[2];
+        return "$nombre x$cantidad";
     }
 }
