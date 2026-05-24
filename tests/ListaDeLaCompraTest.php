@@ -23,6 +23,11 @@ class ListaDeLaCompraTest extends TestCase
      * @test
      */
     public function anadirProductoConCantidadDevuelveCantidad(){
+        $lista = new ListaDeLaCompra();
+
+        $res = $lista->instruccion("añadir pan 3");
+
+        $this->assertEquals("pan x3", $res);
 
     }
 
