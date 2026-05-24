@@ -50,7 +50,7 @@ class ListaDeLaCompraTest extends TestCase
     {
         $lista = new ListaDeLaCompra();
         $lista->instruccion("añadir pan");
-        $res = instruccion("eliminar pan");
+        $res = $lista->instruccion("eliminar pan");
 
         $this->assertEquals("", $res);
 
@@ -61,6 +61,11 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function eliminarProductoNoExistenteDevuelveAviso()
     {
+        $lista = new ListaDeLaCompra();
+        $lista->instruccion("añadir leche");
+        $res = $lista->instruccion("eliminar pan");
+
+        $this->assertEquals("El producto seleccionado no existe", $res);
 
     }
 
