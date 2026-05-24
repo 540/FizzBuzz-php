@@ -17,6 +17,9 @@ class ListaDeLaCompra
             $this->listaDeLaCompra[$nombre] = $cantidad;
         }
         if($accion === "eliminar"){
+            if (!array_key_exists($nombre, $this->listaDeLaCompra)) {
+                return "El producto seleccionado no existe";
+            }
             unset($this->listaDeLaCompra[$nombre]);
         }
 
