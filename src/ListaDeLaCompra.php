@@ -8,7 +8,7 @@ class ListaDeLaCompra
 
     public function instruccion(string $instruccion): string{
         $partes = explode(" ", $instruccion);
-        $nombre = $partes[1];
+        $nombre = strtolower($partes[1]);
         $cantidad = $partes[2];
         return "$nombre x$cantidad";
     }
