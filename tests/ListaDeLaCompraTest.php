@@ -74,7 +74,12 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function vaciarCarritoCuandoInstruccionEsEliminar()
     {
+        $lista = new ListaDeLaCompra();
+        $lista->instruccion("añadir leche");
+        $lista->instruccion("añadir Pan 3");
+        $res = $lista->instruccion("vaciar");
 
+        $this->assertEquals("", $res);
 
     }
 
