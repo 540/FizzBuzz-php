@@ -12,7 +12,11 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function anadirProductoDevuelveUno()
     {
+        $lista = new ListaDeLaCompra();
 
+        $res = $lista->instruccion("añadir pan");
+
+        $this->assertEquals("pan x1", $res);
     }
 
     /**
