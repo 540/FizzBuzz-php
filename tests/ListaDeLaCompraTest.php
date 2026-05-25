@@ -49,6 +49,7 @@ class ListaDeLaCompraTest extends TestCase
     public function eliminarProductoLoBorraDeLaLista()
     {
         $lista = new ListaDeLaCompra();
+
         $lista->instruccion("añadir pan");
         $res = $lista->instruccion("eliminar pan");
 
@@ -62,6 +63,7 @@ class ListaDeLaCompraTest extends TestCase
     public function eliminarProductoNoExistenteDevuelveAviso()
     {
         $lista = new ListaDeLaCompra();
+
         $lista->instruccion("añadir leche");
         $res = $lista->instruccion("eliminar pan");
 
@@ -75,6 +77,7 @@ class ListaDeLaCompraTest extends TestCase
     public function vaciarCarritoCuandoInstruccionEsEliminar()
     {
         $lista = new ListaDeLaCompra();
+
         $lista->instruccion("añadir leche");
         $lista->instruccion("añadir Pan 3");
         $res = $lista->instruccion("vaciar");
@@ -82,6 +85,22 @@ class ListaDeLaCompraTest extends TestCase
         $this->assertEquals("", $res);
 
     }
+
+    /**
+     * @test
+     */
+    public function añadirElementoYaExistenteSumaCantidad()
+    {
+        $lista = new ListaDeLaCompra();
+
+        $lista->instruccion("añadir pan 2");
+        $res = $lista->instruccion("añadir pan 3");
+
+        $this->assertEquals("pan x5", $res);
+
+    }
+
+
 
 
 }
