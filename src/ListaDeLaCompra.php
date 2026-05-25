@@ -14,7 +14,7 @@ class ListaDeLaCompra
 
         if($accion === "añadir"){
             $cantidad = isset($partes[2]) ? (int)$partes[2] : 1;
-            $this->listaDeLaCompra[$nombre] = $cantidad;
+            $this->listaDeLaCompra[$nombre] = ($this->listaDeLaCompra[$nombre] ?? 0) + $cantidad;
         }
         if($accion === "eliminar"){
             if (!array_key_exists($nombre, $this->listaDeLaCompra)) {
@@ -26,7 +26,6 @@ class ListaDeLaCompra
         if($accion === "vaciar"){
             $this->listaDeLaCompra = [];
         }
-
 
         return implode(", ", array_map(
             fn($n, $c) => "$n x$c",
