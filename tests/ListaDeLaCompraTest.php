@@ -7,14 +7,16 @@ use PHPUnit\Framework\TestCase;
 
 class ListaDeLaCompraTest extends TestCase
 {
+    private ListaDeLaCompra $lista;
+    protected function setUp(): void{
+        $this->lista = new ListaDeLaCompra();
+    }
     /**
      * @test
      */
     public function anadirProductoDevuelveUno()
     {
-        $lista = new ListaDeLaCompra();
-
-        $res = $lista->instruccion("añadir pan");
+        $res = $this->lista->instruccion("añadir pan");
 
         $this->assertEquals("pan x1", $res);
     }
@@ -23,9 +25,7 @@ class ListaDeLaCompraTest extends TestCase
      * @test
      */
     public function anadirProductoConCantidadDevuelveCantidad(){
-        $lista = new ListaDeLaCompra();
-
-        $res = $lista->instruccion("añadir pan 3");
+        $res = $this->lista->instruccion("añadir pan 3");
 
         $this->assertEquals("pan x3", $res);
 
@@ -36,9 +36,8 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function anadirConMayusculaNoInfluye()
     {
-        $lista = new ListaDeLaCompra();
 
-        $res = $lista->instruccion("añadir Pan 3");
+        $res = $this->lista->instruccion("añadir Pan 3");
 
         $this->assertEquals("pan x3", $res);
     }
@@ -48,10 +47,8 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function eliminarProductoLoBorraDeLaLista()
     {
-        $lista = new ListaDeLaCompra();
-
-        $lista->instruccion("añadir pan");
-        $res = $lista->instruccion("eliminar pan");
+        $this->lista->instruccion("añadir pan");
+        $res = $this->lista->instruccion("eliminar pan");
 
         $this->assertEquals("", $res);
 
@@ -62,10 +59,8 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function eliminarProductoNoExistenteDevuelveAviso()
     {
-        $lista = new ListaDeLaCompra();
-
-        $lista->instruccion("añadir leche");
-        $res = $lista->instruccion("eliminar pan");
+        $this->lista->instruccion("añadir leche");
+        $res = $this->lista->instruccion("eliminar pan");
 
         $this->assertEquals("El producto seleccionado no existe", $res);
 
@@ -76,11 +71,9 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function vaciarCarritoCuandoInstruccionEsEliminar()
     {
-        $lista = new ListaDeLaCompra();
-
-        $lista->instruccion("añadir leche");
-        $lista->instruccion("añadir Pan 3");
-        $res = $lista->instruccion("vaciar");
+        $this->lista->instruccion("añadir leche");
+        $this->lista->instruccion("añadir Pan 3");
+        $res = $this->lista->instruccion("vaciar");
 
         $this->assertEquals("", $res);
 
@@ -91,10 +84,8 @@ class ListaDeLaCompraTest extends TestCase
      */
     public function añadirElementoYaExistenteSumaCantidad()
     {
-        $lista = new ListaDeLaCompra();
-
-        $lista->instruccion("añadir pan 2");
-        $res = $lista->instruccion("añadir pan 3");
+        $this->lista->instruccion("añadir pan 2");
+        $res = $this->lista->instruccion("añadir pan 3");
 
         $this->assertEquals("pan x5", $res);
 
