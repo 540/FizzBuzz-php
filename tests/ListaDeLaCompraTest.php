@@ -69,7 +69,7 @@ class ListaDeLaCompraTest extends TestCase
     /**
      * @test
      */
-    public function vaciarCarritoCuandoInstruccionEsEliminar()
+    public function vaciarCarritoCuandoInstruccionEsVaciar()
     {
         $this->lista->instruccion("añadir leche");
         $this->lista->instruccion("añadir Pan 3");
